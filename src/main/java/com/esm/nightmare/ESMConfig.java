@@ -113,10 +113,10 @@ public final class ESMConfig {
 		DuplicationChance = BUILDER.comment("Chance Entity Duplicate on Spawn (Out of 100)").define("dupeChance", 10);
 		DungeonDuplicationChance = BUILDER.comment("Chance of entity duplicating when in dungeon (Out of 100)").define("dungeonDupeChance", 50.0);
 		ChargedCreeperChance = BUILDER.comment("Chance of Creepers Spawning Charged Out of 100").define("chargedChance", 1);
-		AngryEntityChance = BUILDER.comment("Chance of Entities Spawning Bloodlusted Out of 100").define("angryEntityChance", 10);
-		CreeperBreachingDistance = BUILDER.comment("Distance at Which Creepers Will Breach if Blocked (in Blocks)").define("breachingDist", 64);
+		AngryEntityChance = BUILDER.comment("Chance of Entities Spawning Bloodlusted (extra health) Out of 100").define("angryEntityChance", 10);
+		CreeperBreachingDistance = BUILDER.comment("Distance at Which Creepers Will Breach if Blocked (in Blocks)").define("breachingDist", 60);
 		CreeperStrikingDistance = BUILDER.comment("Creepers Will Explode if This Close to Player (in Blocks)").define("creeperExplodeDist", 6);
-		CreeperAboveExplodeDistance = BUILDER.comment("Distance At Which Creepers Breech the Ground (in Blocks)").define("creepersBreechGroundDist", 6);
+		CreeperAboveExplodeDistance = BUILDER.comment("Distance At Which Creepers Breach the Ground (in Blocks)").define("creepersBreechGroundDist", 6);
 		CreeperObstructedExplodeTicks = BUILDER.comment("Ticks Until Blocked Creeper Explodes (in Game Ticks)").define("obstructedCreeperExpTicks", 60);
 		MobMaxLife = BUILDER.comment("Maximum ticks in an entity's life until they despawn (if their target is the player). 20 Ticks = 1 second.").define("mobMaxLife", 4800);
 		NuclearCreeperExplosionRadius = BUILDER.comment("Nuclear Creeper Explosion Radius (Default vanilla is 3").define("nuclearCreeperExplosionRadius", 10);
@@ -164,8 +164,7 @@ public final class ESMConfig {
 		//TODO: LIST
 		// Add monsters with high level enchantments if set in config (default to off)
 		// Add monsters with diamond armor (Default to off)
-		
-		
+
 	}
 	
 }

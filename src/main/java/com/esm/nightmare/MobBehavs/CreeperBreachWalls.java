@@ -10,8 +10,6 @@ import net.minecraft.world.entity.monster.Creeper;
 
 //Handles logic for breaching creepers who can't get to player
 public class CreeperBreachWalls {
-
-
 	// Debug - Cause this creeper to explode immediately.
 	public boolean Debug_ExplodeImmediately = false;
 	
@@ -37,7 +35,6 @@ public class CreeperBreachWalls {
 					ServerPlayer Plyr = (ServerPlayer) Creeper_Target;
 
 					if (!Plyr.isCreative()) {
-						
 
 						// Get distance from creeper to its target
 						float Dist_To_Tgt = C.distanceTo(Creeper_Target);

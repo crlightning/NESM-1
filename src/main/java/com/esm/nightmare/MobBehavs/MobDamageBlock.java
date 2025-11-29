@@ -1,4 +1,5 @@
 package com.esm.nightmare.MobBehavs;
+import net.minecraft.world.level.block.state.BlockState;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,11 +14,12 @@ public class MobDamageBlock {
 	public static final String Block_Blacklist = ESMConfig.BlocksEntitiesCannotDigThrough.get().toLowerCase();    
     
 	private static final Logger LOGGER = LogManager.getLogger();
-	
+	//https://forums.minecraftforge.net/topic/108086-1181-preferred-way-of-programatically-breaking-blocks/
 	//Cause entity to destroy a block
 	public MobDamageBlock(Entity Entity_Class, Block Curr_Block, BlockPos Block_Pos)
 	{
-		String Block_Name = Curr_Block.getName().getString();
+		String Block_Name = Curr_Block.getName().getString(); //Block Curr_Block
+		//String Block_Name2 = Curr_Block.getBlock().toString();
 		LOGGER.info("Mob is looking at: "+ Block_Name);
 		//Can this block be broken?
 		boolean isExcluded = isExcludedBlock(Block_Name);
@@ -25,7 +27,7 @@ public class MobDamageBlock {
 		//If block can be broken
 		if(!isExcluded)
 		{
-			new MobPlaceBlock(Entity_Class, Blocks.AIR, Block_Pos);
+			Entity_Class.level().destroyBlock(Block_Pos, true);
 		}
 		
 	}	
