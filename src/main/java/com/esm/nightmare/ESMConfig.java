@@ -96,8 +96,8 @@ public final class ESMConfig {
 		ZombiesLayTNT = BUILDER.comment("Allow Zombies to Lay TNT?").define("isZombieTnt", true);
 		ZombieTNTChance = BUILDER.comment("Chance of zombies placing TNT each tick if in distance.").define("zombieTNTChance", 0.25);
 		ZombieTNTDistance = BUILDER.comment("How close zombies need to be to player to allow setting TNT.").define("zombieTNTDistance", 2);
-		AllowZombieGriefing = BUILDER.comment("Allow Zombies To Destroy Blocks? SETTING IS DEPRECATED AND WILL BE REMOVED IN FUTURE RELEASE. Please set mobGriefing server game rule instead.").define("iszombiegriefing", true);
-		AllowZombieBuilding = BUILDER.comment("Allow Zombies To Place Blocks? DEPRECATED - REPLACED BY mobGriefing game rule. Will be removed in future.").define("iszombiebuilding", true);
+		AllowZombieGriefing = BUILDER.comment("Allow Zombies To Destroy Blocks?").define("iszombiegriefing", true);
+		AllowZombieBuilding = BUILDER.comment("Allow Zombies To Place Blocks?").define("iszombiebuilding", true);
 		SpidersShootWebs = BUILDER.comment("Allow Spiders to Shoot Webs?").define("isSpiderShootWebs", true);
 		isCreeperBreachingAllowed = BUILDER.comment("Can Creepers Breach Walls?").define("isCreeperBreaching", true);
 		isEntitiesBounceOnWater = BUILDER.comment("Do entities bounce when they touch water? Default = true.").define("isOceanSurfing", true);

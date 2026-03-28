@@ -16,9 +16,9 @@ iszombiearmor = true
 isskeletonarmor = true
 #Allow Zombies to Lay TNT?
 iszombietnt = true
-#Allow Zombies To Destroy Blocks? SETTING IS DEPRECATED AND WILL BE REMOVED IN FUTURE RELEASE. Please set mobGriefing server game rule instead.
+#Allow Zombies To Destroy Blocks?
 iszombiegriefing = true
-#Allow Zombies To Place Blocks? DEPRECATED - REPLACED BY mobGriefing game rule. Will be removed in future.
+#Allow Zombies To Place Blocks?
 iszombiebuilding = true
 #Allow Spiders to Shoot Webs?
 isspidershootwebs = true

@@ -276,40 +276,43 @@ public class NightmareMain {
 
 				
 				// Are zombies allowed to destroy blocks?
-				if (isMobGriefingAllowed || ESMConfig.AllowZombieGriefing.get()) {
+				if (isMobGriefingAllowed) {
 
-					//For setting of if we only want entities to grief if they're holding a pickaxe
-					boolean isAllowedToGriefWithItemHeld = true;
-					
-					if(ESMConfig.EntitiesNeedPickaxesToBreakBlocks.get())
-					{
-						isAllowedToGriefWithItemHeld = ItemChecker.EntityHasPickaxe(Entity_Class);
+					if (ESMConfig.AllowZombieGriefing.get()) {
+
+						//For setting of if we only want entities to grief if they're holding a pickaxe
+						boolean isAllowedToGriefWithItemHeld = true;
+						
+						if(ESMConfig.EntitiesNeedPickaxesToBreakBlocks.get())
+						{
+							isAllowedToGriefWithItemHeld = ItemChecker.EntityHasPickaxe(Entity_Class);
+						}
+						
+						
+						// Get current cycle for mob. Cycles between: Digging, Digging up, Digging down.
+						// Supposed to prevent irritating 1x1 death traps...
+
+						boolean isAtTimeInterval = Clocker.IsAtTimeInterval(Entity_Class, ESMConfig.EntityDigDelay.get());
+
+						if (isAtTimeInterval) {
+
+							int Curr_Dig_Cycle = Clocker.GetIndexFromTime(3);
+
+							switch (Curr_Dig_Cycle) {
+							case 0: {
+								MobDig Zombies_Dig = new MobDig(Entity_Class);
+							}
+							case 1: {
+								MobDigUp Zombies_Dig_Up = new MobDigUp(Entity_Mob);
+							}
+							case 2: {
+								MobDigDown Zombies_Dig_Down = new MobDigDown(Entity_Mob);
+							}
+							}
+						}
 					}
-					
-					
-					// Get current cycle for mob. Cycles between: Digging, Digging up, Digging down.
-					// Supposed to prevent irritating 1x1 death traps...
 
-					boolean isAtTimeInterval = Clocker.IsAtTimeInterval(Entity_Class, ESMConfig.EntityDigDelay.get());
-
-					if (isAtTimeInterval) {
-
-						int Curr_Dig_Cycle = Clocker.GetIndexFromTime(3);
-
-						switch (Curr_Dig_Cycle) {
-						case 0: {
-							MobDig Zombies_Dig = new MobDig(Entity_Class);
-						}
-						case 1: {
-							MobDigUp Zombies_Dig_Up = new MobDigUp(Entity_Mob);
-						}
-						case 2: {
-							MobDigDown Zombies_Dig_Down = new MobDigDown(Entity_Mob);
-						}
-						}
-					}
-
-					if (Clocker.IsAtTimeInterval(Entity_Class, ESMConfig.EntityBuildDelay.get())) {
+					if (ESMConfig.AllowZombieBuilding.get() && Clocker.IsAtTimeInterval(Entity_Class, ESMConfig.EntityBuildDelay.get())) {
 						MobBuildUp Zombies_Build_Up = new MobBuildUp(Entity_Mob);
 						MobBuildBridge Zombie_Build_Bridge = new MobBuildBridge(Entity_Mob);
 					}
